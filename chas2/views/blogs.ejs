@@ -1,0 +1,43 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <title>Blogs</title>
+  </head>
+  <body>
+    <h1><%= naslovNaStranata %></h1>
+    <p class="godina">Godina: <%= godina %></p>
+    <div class="blog-section">
+      <% if (blogs.length === 0) { %>
+      <p>No Blogs found.</p>
+      <% } else { %> <% blogs.forEach(blog => { %>
+      <div class="blog">
+        <h2><%= blog.naslov %></h2>
+        <p><%= blog.tekst %></p>
+        <div class="rating">
+          <p>Ocenka: <%= blog.ocenka %></p>
+        </div>
+        <p class="author">Avtor: <%= blog.avtor %></p>
+        <p>Kreirano na <%= blog.vreme.toDateString() %></p>
+        <a class="kopce desno" href="/blogs/<% blog._id %>">View Blog</a>
+        <form method="POST" action="/blogs/delete/<%= blog._id %>">
+          <button class="kopce" type="submit">Delete</button>
+        </form>
+      </div>
+      <% }); %> <%} %>
+    </div>
+    <form action="/blogs" method="POST">
+      <label for="naslov">Naslov:</label>
+      <input type="text" id="naslov" name="naslov" required />
+      <label for="tekst">Kontent:</label>
+      <textarea name="tekst" id="tekst" cols="30" rows="10" required></textarea>
+      <label for="ocenka">Ocenka:</label>
+      <input type="number" id="ocenka" name="ocenka" min="1" max="5" required />
+      <label for="avtor">Avtor:</label>
+      <input type="text" id="avtor" name="avtor" />
+      <button type="submit">Napravi nov blog</button>
+    </form>
+  </body>
+</html>

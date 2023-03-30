@@ -28,8 +28,8 @@ exports.getBlog = async (req, res) => {
     Blog.findOne({ _id: req.params.id });
 
     // query spored naslov
-    // const naslov = req.params.naslov;
-    // const blog = await Blog.findOne({ ime: naslov });
+    // const paramNaslov = req.params.naslov;
+    // const blog = await Blog.findOne({ naslov: paramNaslov });
 
     res.status(200).json({
       status: "success",
@@ -50,9 +50,9 @@ exports.updateBlog = async (req, res) => {
       new: true,
       runValidators: true,
     });
-    const naslov = req.params.naslov;
+    const paramNaslov = req.params.naslov;
 
-    // const blog = await Blog.findOneAndUpdate({ime: naslov}, req.body)
+    // const blog = await Blog.findOneAndUpdate({naslov: paramNaslov}, req.body)
     res.status(200).json({
       status: "success",
       data: {
