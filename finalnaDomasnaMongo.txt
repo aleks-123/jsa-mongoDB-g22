@@ -1,0 +1,13 @@
+1) Da kreirate server side stranica - slicna na taa sto ja kreiravme na chas so vashata data baza
+2) Da iskoristite vash CSS i po moznosh frontend JavaScript
+3) Da mozeme preku stranicata da kreirame nov dokument vo nashata kolekcija, da izbrisime, i azurirame kako i da ima opcija Read more.
+
+// Mala pomosh
+Za kreiranje na nov dokument vo nashata kolecija kje upotrebime prototype.create
+Za brisenje na nekoj dokument vo nashata kolekcija kje upotrebime prototype.findByIdAndDelete kako parametar kje go zemime _id od dokumentot 
+Za uzuriranje na nekoj dokument vo nashata kolekcija kje upotrebime prototype.findByIdAndUpdate kako parametar kje upotrebime _id od dokumentot, req.body 
+Opcijata Read more kje upotrebime prototype.findById ili prototype.findOne.
+
+// BONUS
+
+Bidejki imate uceno React moze da probate da go konzumirate apito sto vekje go imate napraveno za domasna i da probate da napravite Client Side Rendering, znaci kje treba da go konzumirate apito so fetch ili axios i probajte barem da prikazete nesto 

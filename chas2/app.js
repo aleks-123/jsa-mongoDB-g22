@@ -44,6 +44,11 @@ app.get("/blogs", viewController.getBlogView);
 app.post("/blogs", viewController.createBlog);
 app.post("/blogs/delete/:id", viewController.deleteBlog);
 
+const port = 10000;
+app.listen(port, () => {
+  console.log(`App running on port ${port}`);
+});
+
 //vezba
 // app.get("/blogs/:id", viewController.getSingleBlock);
 
@@ -68,8 +73,3 @@ app.post("/blogs/delete/:id", viewController.deleteBlog);
 // 404 - Not found: Serverot nemoze da go pronajajde pobaraniot resurs
 
 // 500 Imame greska so serverot pri procesiranje na requestot
-
-const port = 10000;
-app.listen(port, () => {
-  console.log(`App running on port ${port}`);
-});
