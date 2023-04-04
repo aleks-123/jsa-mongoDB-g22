@@ -14,6 +14,19 @@ exports.getBlogView = async (req, res) => {
   }
 };
 
+exports.getSpecificBlog = async (req, res) => {
+  try {
+    console.log("aaa");
+    const blog = await Blog.findById(req.params.id);
+
+    res.status(200).render("clickedBlog", {
+      blog,
+    });
+  } catch (err) {
+    res.status(500).send("Error with this page");
+  }
+};
+
 exports.createBlog = async (req, res) => {
   try {
     console.log(req.body);
@@ -27,10 +40,18 @@ exports.createBlog = async (req, res) => {
 
 exports.deleteBlog = async (req, res) => {
   try {
-    const id = req.params.id;
-    await Blog.findByIdAndDelete(id);
+    await Blog.findByIdAndDelete(req.params.id);
     res.redirect("/blogs");
   } catch (err) {
     res.status(500).send("Error deleting blog");
+  }
+};
+
+exports.updateBlog = async (req, res) => {
+  try {
+    const blog = await Blog.findByIdAndUpdate(req.params.id, req.body);
+    res.redirect(`/blogs/${blog._id}`);
+  } catch (err) {
+    res.status(500).send("Error updating blog");
   }
 };

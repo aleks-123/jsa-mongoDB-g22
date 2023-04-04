@@ -21,7 +21,7 @@
         </div>
         <p class="author">Avtor: <%= blog.avtor %></p>
         <p>Kreirano na <%= blog.vreme.toDateString() %></p>
-        <a class="kopce desno" href="/blogs/<% blog._id %>">View Blog</a>
+        <a class="kopce desno" href="/blogs/<%= blog._id %>">View Blog</a>
         <form method="POST" action="/blogs/delete/<%= blog._id %>">
           <button class="kopce" type="submit">Delete</button>
         </form>

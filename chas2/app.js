@@ -42,7 +42,9 @@ app.delete("/api/v1/blogs/:id", blogController.deleteBlog);
 // definiranje na routi za stranica
 app.get("/blogs", viewController.getBlogView);
 app.post("/blogs", viewController.createBlog);
+app.get("/blogs/:id", viewController.getSpecificBlog);
 app.post("/blogs/delete/:id", viewController.deleteBlog);
+app.post("/blogs/:id", viewController.updateBlog);
 
 const port = 10000;
 app.listen(port, () => {
